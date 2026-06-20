@@ -8,22 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        const icon = hamburger.querySelector('i');
-        if(navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-xmark');
-        } else {
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
-        }
+        hamburger.classList.toggle('active');
     });
 
     // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        const icon = hamburger.querySelector('i');
-        icon.classList.remove('fa-xmark');
-        icon.classList.add('fa-bars');
+        hamburger.classList.remove('active');
     }));
 
     // 3. Directionally-aware Header
