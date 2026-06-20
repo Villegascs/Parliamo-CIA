@@ -26,14 +26,27 @@ document.addEventListener('DOMContentLoaded', () => {
         icon.classList.add('fa-bars');
     }));
 
-    // 3. Navbar background on scroll
+    // 3. Directionally-aware Header
     const navbar = document.querySelector('.navbar-wrapper');
+    let lastScrollY = window.scrollY;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                navbar.classList.add('nav-hidden');
+            } else {
+                // Scrolling up
+                navbar.classList.remove('nav-hidden');
+            }
         } else {
-            navbar.classList.remove('scrolled');
+            // At the top
+            navbar.classList.remove('nav-hidden');
         }
+        
+        lastScrollY = currentScrollY;
     });
 
     // 4. Handle Form Submission -> WhatsApp
@@ -73,5 +86,32 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         
         // Optional: Reset form after sending
         leadForm.reset();
+    });
+
+    // 5. Scroll Reveal Animations (E-Lab Style)
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once revealed for one-time animation
+                // observer.unobserve(entry.target); 
+            } else {
+                // Optional: remove 'active' to animate again when scrolling up
+                entry.target.classList.remove('active');
+            }
+        });
+    };
+
+    const revealOptions = {
+        threshold: 0.15, // Trigger when 15% of element is visible
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
     });
 });
