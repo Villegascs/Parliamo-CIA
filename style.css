@@ -241,10 +241,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .hamburger {
     display: none;
-    font-size: 1.5rem;
-    color: var(--clr-white);
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
     cursor: pointer;
     margin-right: 1rem;
+    z-index: 1000;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--clr-white);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* =========================================
@@ -818,7 +842,7 @@ footer {
     }
 
     .hamburger {
-        display: block;
+        display: flex;
     }
 
     .nav-cta {
