@@ -199,24 +199,8 @@ h1, h2, h3, h4 {
     padding: 0.5rem 0;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--clr-accent);
-    transition: var(--transition);
-    transform: translateX(-50%);
-}
-
 .nav-link:hover {
-    color: var(--clr-white);
-}
-
-.nav-link:hover::after {
-    width: 100%;
+    color: var(--clr-accent);
 }
 
 .nav-cta {
@@ -746,21 +730,26 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links {
-        position: fixed;
+        position: absolute;
         top: 80px;
-        left: -100%;
+        left: 0;
         width: 100%;
-        height: calc(100vh - 80px);
+        padding: 2rem 0;
         background-color: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(15px);
         flex-direction: column;
         justify-content: center;
         transition: var(--transition);
-        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        border-radius: var(--radius-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
     }
 
     .nav-links.active {
-        left: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
 
     .hamburger {
