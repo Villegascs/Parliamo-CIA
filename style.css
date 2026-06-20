@@ -14,7 +14,8 @@
     --clr-white: #ffffff;
     
     /* Typography */
-    --font-main: 'Outfit', sans-serif;
+    --font-main: 'Cardo', serif;
+    --font-accent: 'Great Vibes', cursive;
     
     /* Box Shadow & Radii */
     --shadow-sm: 0 4px 6px rgba(3, 35, 134, 0.05);
@@ -64,14 +65,28 @@ ul {
 /* =========================================
    Typography & Utilities
 ========================================= */
-h1, h2, h3, h4 {
-    color: var(--clr-primary-dark);
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
     line-height: 1.2;
+    margin-bottom: 1rem;
+    font-family: var(--font-main);
+    color: var(--clr-primary-dark);
+}
+
+.font-accent {
+    font-family: var(--font-accent);
+    font-weight: 400;
+    font-style: italic;
 }
 
 .highlight {
-    color: var(--clr-primary-light);
-    position: relative;
+    color: var(--clr-accent);
+}
+
+.font-accent.highlight {
+    font-size: 1.3em;
+    display: inline-block;
+    transform: translateY(-5px) rotate(-2deg);
 }
 
 .highlight-text {
@@ -84,7 +99,7 @@ h1, h2, h3, h4 {
 }
 
 .section-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
 }
 
@@ -92,7 +107,7 @@ h1, h2, h3, h4 {
     color: var(--clr-text-light);
     max-width: 600px;
     margin: 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 /* Buttons */
@@ -176,11 +191,13 @@ h1, h2, h3, h4 {
 }
 
 .logo {
-    font-size: 1.2rem;
+    font-family: var(--font-main);
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--clr-white);
     display: flex;
     align-items: center;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -253,12 +270,12 @@ h1, h2, h3, h4 {
 }
 
 .hero-text h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: var(--clr-text-light);
     margin-bottom: 2rem;
 }
@@ -342,7 +359,7 @@ h1, h2, h3, h4 {
 }
 
 .card h3 {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 1rem;
 }
 

@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneNumber = '584244745917'; // +58 424-4745917
 
         // Format message
-        const message = `¡Hola Parliamo CIA! 🇮🇹 Estoy interesado/a en aprender italiano y completé el formulario web:
+        const message = `¡Hola Parliamo Ciao! 🇮🇹 Estoy interesado/a en aprender italiano y completé el formulario web:
 
 *Modalidad:* ${modalidad}
 *Edad:* ${edad} años
