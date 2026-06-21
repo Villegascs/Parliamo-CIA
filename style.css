@@ -743,7 +743,6 @@ textarea.form-input {
     }
     
     .hero-content {
-        order: 2;
         text-align: center;
     }
     
@@ -760,7 +759,7 @@ textarea.form-input {
     }
     
     .hero-image {
-        height: 400px;
+        height: 250px;
     }
     
     .courses-grid {
