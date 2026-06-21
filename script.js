@@ -134,7 +134,6 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                // Smooth scroll to the element
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
@@ -142,4 +141,52 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
             }
         });
     });
+
+    // 7. Preloader Intro Animation
+    const preloader = document.getElementById('preloader');
+    const preloaderText = document.getElementById('preloader-text');
+    const textContainer = document.querySelector('.preloader-text-container');
+    
+    if (preloader && preloaderText) {
+        const phrases = [
+            "Bienvenido a Parliamo Ciao",
+            "Welcome to Parliamo Ciao",
+            "Bienvenue à Parliamo Ciao",
+            "Benvenuto a Parliamo Ciao"
+        ];
+        
+        let currentPhrase = 0;
+        
+        // Prevent scrolling while preloader is active
+        document.body.style.overflow = 'hidden';
+        
+        const changeText = () => {
+            currentPhrase++;
+            if (currentPhrase < phrases.length) {
+                // Fade out text
+                textContainer.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    // Change text and fade back in
+                    preloaderText.textContent = phrases[currentPhrase];
+                    textContainer.classList.remove('fade-out');
+                    
+                    // Wait then change again
+                    setTimeout(changeText, 800); 
+                }, 400); // 400ms fade out duration
+            } else {
+                // Intro finished, hide preloader
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    document.body.style.overflow = '';
+                    
+                    // Trigger scroll event to ensure animations check their state
+                    window.dispatchEvent(new Event('scroll'));
+                }, 800);
+            }
+        };
+        
+        // Start animation after initial delay
+        setTimeout(changeText, 1200);
+    }
 });
