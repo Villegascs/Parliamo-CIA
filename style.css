@@ -895,10 +895,32 @@ textarea.form-input {
 }
 
 .trusted-logos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.trusted-logos-track {
+    display: inline-flex;
     gap: 1.5rem;
+    padding-right: 1.5rem;
+    animation: marquee 25s linear infinite;
+}
+
+.trusted-logos:hover .trusted-logos-track {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 .logo-card {
@@ -926,7 +948,7 @@ textarea.form-input {
     }
     
     .logo-card {
-        min-width: calc(50% - 0.75rem);
+        min-width: 120px;
         padding: 1rem;
         height: 70px;
     }
