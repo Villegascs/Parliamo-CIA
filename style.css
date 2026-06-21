@@ -4,14 +4,14 @@
 :root {
     /* Colors */
     --clr-background: #ffffff;
-    --clr-background-alt: #f7f7f8;
-    --clr-text-primary: #111111;
+    --clr-background-alt: #F5F5EB;
+    --clr-text-primary: #032386;
     --clr-text-secondary: #555555;
     
     /* Brand Colors (Keeping Parliamo Ciao essence but modern) */
-    --clr-brand: #2b5cff;
-    --clr-brand-hover: #1e45c7;
-    --clr-accent: #f5b301;
+    --clr-brand: #3064B7;
+    --clr-brand-hover: #032386;
+    --clr-accent: #E1AA2C;
     
     /* Layout & Spacing */
     --container-max: 1280px;
@@ -497,7 +497,7 @@ h1, h2, h3, h4, h5, h6 {
    Form Section
 ========================================= */
 .form-section {
-    background-color: #111111;
+    background-color: #032386;
     color: var(--clr-background);
 }
 
@@ -579,9 +579,146 @@ textarea.form-input {
     resize: vertical;
 }
 
-/* Select wrapper */
-.select-wrapper {
+/* =========================================
+   Combobox (Shadcn/UI Style)
+======================================== */
+.combobox-wrapper {
     position: relative;
+    width: 100%;
+}
+
+.combobox-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    background-color: var(--clr-background);
+    color: var(--clr-text-primary);
+    text-align: left;
+}
+
+.combobox-trigger .combobox-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--clr-text-secondary);
+}
+
+.combobox-trigger.has-value .combobox-value {
+    color: var(--clr-text-primary);
+}
+
+.combobox-icon {
+    font-size: 0.8rem;
+    color: var(--clr-text-secondary);
+    transition: transform 0.2s;
+    opacity: 0.5;
+}
+
+.combobox-trigger[aria-expanded="true"] .combobox-icon {
+    /* Optional rotation for opened state */
+}
+
+.combobox-trigger:focus {
+    outline: none;
+    border-color: var(--clr-brand);
+    box-shadow: 0 0 0 4px rgba(43, 92, 255, 0.1);
+}
+
+.combobox-content {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    background-color: var(--clr-background);
+    border: 1px solid #eaeaec;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    z-index: 50;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.15s ease-out;
+}
+
+.combobox-content[hidden] {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.combobox-search {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-bottom: 1px solid #eaeaec;
+}
+
+.combobox-search .search-icon {
+    color: var(--clr-text-secondary);
+    font-size: 0.9rem;
+    margin-right: 8px;
+    opacity: 0.5;
+}
+
+.combobox-search-input {
+    flex: 1;
+    border: none;
+    padding: 12px 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    background: transparent;
+    color: var(--clr-text-primary);
+    outline: none;
+}
+
+.combobox-search-input::placeholder {
+    color: #a0a0a0;
+}
+
+.combobox-options {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 4px;
+}
+
+.combobox-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.15s, color 0.15s;
+    user-select: none;
+}
+
+.combobox-option:hover,
+.combobox-option.selected {
+    background-color: var(--clr-background-alt);
+}
+
+.option-check {
+    width: 16px;
+    font-size: 0.85rem;
+    margin-right: 8px;
+    visibility: hidden;
+    color: var(--clr-text-primary);
+}
+
+.combobox-option.selected .option-check {
+    visibility: visible;
+}
+
+.combobox-empty {
+    padding: 16px 12px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--clr-text-secondary);
 }
 
 /* Radio buttons */
@@ -638,7 +775,7 @@ textarea.form-input {
    Footer
 ========================================= */
 .footer {
-    background-color: #0a0a0a;
+    background-color: #032386;
     color: var(--clr-background);
     padding: 5rem 0 2rem;
 }

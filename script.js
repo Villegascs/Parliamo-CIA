@@ -189,4 +189,64 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         // Start animation after initial delay
         setTimeout(changeText, 1200);
     }
+
+    // 8. Combobox Logic (Shadcn UI style without search)
+    const comboboxes = document.querySelectorAll('.combobox-wrapper');
+    
+    comboboxes.forEach(wrapper => {
+        const trigger = wrapper.querySelector('.combobox-trigger');
+        const content = wrapper.querySelector('.combobox-content');
+        const options = wrapper.querySelectorAll('.combobox-option');
+        const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+        const valueDisplay = trigger.querySelector('.combobox-value');
+
+        // Toggle open/close
+        trigger.addEventListener('click', () => {
+            const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+            
+            if (isExpanded) {
+                closeCombobox();
+            } else {
+                openCombobox();
+            }
+        });
+
+        function openCombobox() {
+            trigger.setAttribute('aria-expanded', 'true');
+            content.removeAttribute('hidden');
+        }
+
+        function closeCombobox() {
+            trigger.setAttribute('aria-expanded', 'false');
+            content.setAttribute('hidden', '');
+        }
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!wrapper.contains(e.target)) {
+                closeCombobox();
+            }
+        });
+
+        // Selection
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked
+                option.classList.add('selected');
+                
+                // Update values
+                const value = option.getAttribute('data-value');
+                const text = option.querySelector('.option-text').textContent;
+                
+                hiddenInput.value = value;
+                valueDisplay.textContent = text;
+                trigger.classList.add('has-value');
+                
+                closeCombobox();
+            });
+        });
+    });
 });

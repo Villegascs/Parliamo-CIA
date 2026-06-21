@@ -170,20 +170,42 @@
                             <form id="leadForm" class="contact-form">
                                 <div class="form-field">
                                     <label class="form-label" for="modalidad">¿Qué modalidad buscas? *</label>
-                                    <div class="select-wrapper">
-                                        <select id="modalidad" class="form-input" required>
-                                            <option value="" disabled selected>Selecciona una opción</option>
-                                            <option value="Presencial en grupo">Presencial en grupo</option>
-                                            <option value="Online Personalizado">Online Personalizado</option>
-                                            <option value="Presencial personalizado">Presencial personalizado</option>
-                                        </select>
+                                    <div class="combobox-wrapper" id="modalidad-combobox">
+                                        <!-- Hidden input para mantener la compatibilidad con el script existente -->
+                                        <input type="hidden" id="modalidad" name="modalidad" required>
+                                        
+                                        <!-- Botón que activa el combobox -->
+                                        <button type="button" class="combobox-trigger form-input" aria-expanded="false" aria-controls="modalidad-listbox">
+                                            <span class="combobox-value">Selecciona una opción</span>
+                                            <i class="fa-solid fa-chevron-down combobox-icon"></i>
+                                        </button>
+                                        
+                                        <!-- Contenido del popover -->
+                                        <div class="combobox-content" hidden>
+
+                                            <ul class="combobox-options" id="modalidad-listbox" role="listbox">
+                                                <li class="combobox-option" role="option" data-value="Presencial en grupo">
+                                                    <i class="fa-solid fa-check option-check"></i>
+                                                    <span class="option-text">Presencial en grupo</span>
+                                                </li>
+                                                <li class="combobox-option" role="option" data-value="Online Personalizado">
+                                                    <i class="fa-solid fa-check option-check"></i>
+                                                    <span class="option-text">Online Personalizado</span>
+                                                </li>
+                                                <li class="combobox-option" role="option" data-value="Presencial personalizado">
+                                                    <i class="fa-solid fa-check option-check"></i>
+                                                    <span class="option-text">Presencial personalizado</span>
+                                                </li>
+                                            </ul>
+                                            <div class="combobox-empty" hidden>No se encontró ninguna opción.</div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-field half-width">
                                         <label class="form-label" for="edad">¿Qué edad tienes? *</label>
-                                        <input type="number" id="edad" class="form-input" placeholder="Ej: 25" min="5" max="99" required>
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="edad" class="form-input" placeholder="Ej: 25" maxlength="2" required oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                                     </div>
                                     <div class="form-field half-width">
                                         <label class="form-label">¿Quieres aplicar al PLIDA? *</label>
