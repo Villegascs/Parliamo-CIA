@@ -794,18 +794,38 @@ textarea.form-input {
     /* Mobile Menu */
     .nav-links {
         display: none;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+        top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
+        height: 100vh;
         background-color: var(--clr-background);
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         padding: 2rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        text-align: center;
-        gap: 1.5rem;
-        border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem;
+        box-shadow: none;
+        gap: 2.5rem;
+        border-radius: 0;
+        z-index: 999;
+    }
+    
+    .nav-link {
+        font-size: 2rem;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .nav-link:hover {
+        background-color: transparent;
+        box-shadow: none;
+        transform: translateY(-2px);
+    }
+    
+    .brand-logo {
+        position: relative;
+        z-index: 1001;
     }
     
     .nav-links.active {
@@ -818,6 +838,8 @@ textarea.form-input {
     
     .hamburger {
         display: flex;
+        position: relative;
+        z-index: 1001;
     }
     
     .hamburger.active .bar:nth-child(1) {

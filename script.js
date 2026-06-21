@@ -9,12 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
+        
+        // Prevent background scrolling when menu is open
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // Close mobile menu when clicking a link
     document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
         navLinks.classList.remove('active');
         hamburger.classList.remove('active');
+        document.body.style.overflow = '';
     }));
 
     // 3. Directionally-aware Header
@@ -22,9 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-        
-        if (currentScrollY > 100) {
+        let currentScrollY = window.scrollY;
+
+        // Add scrolled class for background styling
+        if (currentScrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Directionally-aware hiding logic
+        // Only hide if the mobile menu is NOT active
+        if (currentScrollY > 100 && !navLinks.classList.contains('active')) {
             if (currentScrollY > lastScrollY) {
                 // Scrolling down
                 navbar.classList.add('nav-hidden');
@@ -32,11 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Scrolling up
                 navbar.classList.remove('nav-hidden');
             }
-        } else {
-            // At the top
-            navbar.classList.remove('nav-hidden');
         }
         
+        // If we scroll all the way to the top, make sure it's visible
+        if (currentScrollY <= 100) {
+            navbar.classList.remove('nav-hidden');
+        }
+
         lastScrollY = currentScrollY;
     });
 
