@@ -874,3 +874,60 @@ textarea.form-input {
 .delay-400 { transition-delay: 400ms; }
 .delay-500 { transition-delay: 500ms; }
 
+/* =========================================
+   Trusted Section
+========================================= */
+.trusted-box {
+    background-color: #f0f2f5;
+    border-radius: 1.5rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.trusted-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--clr-text-primary);
+}
+
+.trusted-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.logo-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    height: 80px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    transition: transform 0.3s ease;
+    font-size: 1.25rem;
+    color: #111;
+}
+
+.logo-card:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .trusted-box {
+        padding: 3rem 1.5rem;
+    }
+    
+    .logo-card {
+        min-width: calc(50% - 0.75rem);
+        padding: 1rem;
+        height: 70px;
+    }
+}
