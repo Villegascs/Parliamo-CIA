@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const objetivo = document.getElementById('objetivo').value;
 
         // WhatsApp Number
-        const phoneNumber = '584244745917'; // +58 424-4745917
+        const phoneNumber = '584129550860'; // +58 412-9550860
 
         // Format message
         const message = `¡Hola Parliamo Ciao! 🇮🇹 Estoy interesado/a en aprender italiano y completé el formulario web:
