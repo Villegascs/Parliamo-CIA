@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         hamburger.classList.toggle('active');
-        
+
         // Prevent background scrolling when menu is open
         if (navLinks.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navbar.classList.remove('nav-hidden');
             }
         }
-        
+
         // If we scroll all the way to the top, make sure it's visible
         if (currentScrollY <= 100) {
             navbar.classList.remove('nav-hidden');
@@ -93,14 +93,14 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
 
         // Open WhatsApp in a new tab
         window.open(whatsappUrl, '_blank');
-        
+
         // Optional: Reset form after sending
         leadForm.reset();
     });
 
     // 5. Scroll Reveal Animations (E-Lab Style)
     const revealElements = document.querySelectorAll('.reveal');
-    
+
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -146,7 +146,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
     const preloader = document.getElementById('preloader');
     const preloaderText = document.getElementById('preloader-text');
     const textContainer = document.querySelector('.preloader-text-container');
-    
+
     if (preloader && preloaderText) {
         const phrases = [
             "Bienvenido a Parliamo Ciao",
@@ -154,45 +154,45 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
             "Bienvenue à Parliamo Ciao",
             "Benvenuto a Parliamo Ciao"
         ];
-        
+
         let currentPhrase = 0;
-        
+
         // Prevent scrolling while preloader is active
         document.body.style.overflow = 'hidden';
-        
+
         const changeText = () => {
             currentPhrase++;
             if (currentPhrase < phrases.length) {
                 // Fade out text
                 textContainer.classList.add('fade-out');
-                
+
                 setTimeout(() => {
                     // Change text and fade back in
                     preloaderText.textContent = phrases[currentPhrase];
                     textContainer.classList.remove('fade-out');
-                    
+
                     // Wait then change again
-                    setTimeout(changeText, 800); 
+                    setTimeout(changeText, 800);
                 }, 400); // 400ms fade out duration
             } else {
                 // Intro finished, hide preloader
                 setTimeout(() => {
                     preloader.classList.add('hidden');
                     document.body.style.overflow = '';
-                    
+
                     // Trigger scroll event to ensure animations check their state
                     window.dispatchEvent(new Event('scroll'));
                 }, 800);
             }
         };
-        
+
         // Start animation after initial delay
         setTimeout(changeText, 1200);
     }
 
     // 8. Combobox Logic (Shadcn UI style without search)
     const comboboxes = document.querySelectorAll('.combobox-wrapper');
-    
+
     comboboxes.forEach(wrapper => {
         const trigger = wrapper.querySelector('.combobox-trigger');
         const content = wrapper.querySelector('.combobox-content');
@@ -203,7 +203,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         // Toggle open/close
         trigger.addEventListener('click', () => {
             const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
-            
+
             if (isExpanded) {
                 closeCombobox();
             } else {
@@ -233,20 +233,52 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
             option.addEventListener('click', () => {
                 // Remove selected class from all
                 options.forEach(opt => opt.classList.remove('selected'));
-                
+
                 // Add selected class to clicked
                 option.classList.add('selected');
-                
+
                 // Update values
                 const value = option.getAttribute('data-value');
                 const text = option.querySelector('.option-text').textContent;
-                
+
                 hiddenInput.value = value;
                 valueDisplay.textContent = text;
                 trigger.classList.add('has-value');
-                
+
                 closeCombobox();
             });
         });
     });
+
+    // 9. Lenis Smooth Scroll Initialization
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            lerp: 0.08, // Gives a very controlled, smooth, high-end feel
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // Make anchor links smooth scroll using Lenis since we removed native CSS smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Offset by -80 to account for the fixed sticky navbar
+                        lenis.scrollTo(targetElement, { offset: -80 });
+                    }
+                }
+            });
+        });
+    }
 });
