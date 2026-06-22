@@ -149,10 +149,10 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
 
     if (preloader && preloaderText) {
         const phrases = [
-            "Bienvenido a Parliamo Ciao",
-            "Welcome to Parliamo Ciao",
-            "Bienvenue à Parliamo Ciao",
-            "Benvenuto a Parliamo Ciao"
+            '<span class="intro-greeting">Bienvenido a</span> <span class="intro-brand">Parliamo Ciao</span>',
+            '<span class="intro-greeting">Welcome to</span> <span class="intro-brand">Parliamo Ciao</span>',
+            '<span class="intro-greeting">Bienvenue à</span> <span class="intro-brand">Parliamo Ciao</span>',
+            '<span class="intro-greeting">Benvenuto a</span> <span class="intro-brand">Parliamo Ciao</span>'
         ];
 
         let currentPhrase = 0;
@@ -168,7 +168,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
 
                 setTimeout(() => {
                     // Change text and fade back in
-                    preloaderText.textContent = phrases[currentPhrase];
+                    preloaderText.innerHTML = phrases[currentPhrase];
                     textContainer.classList.remove('fade-out');
 
                     // Wait then change again

@@ -1222,11 +1222,7 @@ textarea.form-input {
     .preloader-text-container {
         font-size: 2rem;
     }
-}
-}
-
-@media (max-width: 768px) {
-    .preloader-text-container {
-        font-size: 2rem;
+    .intro-brand {
+        display: block;
     }
 }
