@@ -142,53 +142,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         });
     });
 
-    // 7. Preloader Intro Animation
-    const preloader = document.getElementById('preloader');
-    const preloaderText = document.getElementById('preloader-text');
-    const textContainer = document.querySelector('.preloader-text-container');
 
-    if (preloader && preloaderText) {
-        const phrases = [
-            '<span class="intro-greeting">Bienvenido a</span> <span class="intro-brand">Parliamo Ciao</span>',
-            '<span class="intro-greeting">Welcome to</span> <span class="intro-brand">Parliamo Ciao</span>',
-            '<span class="intro-greeting">Bienvenue à</span> <span class="intro-brand">Parliamo Ciao</span>',
-            '<span class="intro-greeting">Benvenuto a</span> <span class="intro-brand">Parliamo Ciao</span>'
-        ];
-
-        let currentPhrase = 0;
-
-        // Prevent scrolling while preloader is active
-        document.body.style.overflow = 'hidden';
-
-        const changeText = () => {
-            currentPhrase++;
-            if (currentPhrase < phrases.length) {
-                // Fade out text
-                textContainer.classList.add('fade-out');
-
-                setTimeout(() => {
-                    // Change text and fade back in
-                    preloaderText.innerHTML = phrases[currentPhrase];
-                    textContainer.classList.remove('fade-out');
-
-                    // Wait then change again
-                    setTimeout(changeText, 800);
-                }, 400); // 400ms fade out duration
-            } else {
-                // Intro finished, hide preloader
-                setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    document.body.style.overflow = '';
-
-                    // Trigger scroll event to ensure animations check their state
-                    window.dispatchEvent(new Event('scroll'));
-                }, 800);
-            }
-        };
-
-        // Start animation after initial delay
-        setTimeout(changeText, 1200);
-    }
 
     // 8. Combobox Logic (Shadcn UI style without search)
     const comboboxes = document.querySelectorAll('.combobox-wrapper');
