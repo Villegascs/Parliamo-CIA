@@ -202,8 +202,10 @@ h6 {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-wrapper.nav-hidden {
-    transform: translateY(-100%);
+.navbar-wrapper.nav-hidden .nav-group {
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 .navbar-container {
@@ -217,6 +219,9 @@ h6 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: absolute;
+    right: 2vw;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .brand-logo {
@@ -1222,7 +1227,7 @@ textarea.form-input {
    Custom Marquee
 ========================================= */
 .custom-marquee-section {
-    background-color: var(--clr-brand);
+    background-color: #032386;
     color: var(--clr-background);
     padding: 1.5rem 0;
     overflow: hidden;
