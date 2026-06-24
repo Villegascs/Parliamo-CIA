@@ -223,6 +223,7 @@ h6 {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-left: -9vw;
 }
 
 .logo-img {
@@ -236,6 +237,17 @@ h6 {
     font-weight: 700;
     font-size: 1.25rem;
     letter-spacing: -0.01em;
+}
+
+.home-icon {
+    width: auto;
+    height: 52px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.home-icon:hover {
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -1226,6 +1238,7 @@ textarea.form-input {
     animation: marquee-lr 25s linear infinite;
     font-family: var(--font-cardo);
     font-size: 2rem;
+    text-transform: uppercase;
 }
 
 @keyframes marquee-lr {
