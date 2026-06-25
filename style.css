@@ -2,23 +2,30 @@
    Variables & Reset (E-Lab Style)
 ========================================= */
 @font-face {
-    font-family: 'Cardo';
-    src: url('Branding/Cardo-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'Helvetica Neue';
+    src: url('Branding/helvetica-neue-5/HelveticaNeueLight.otf') format('opentype');
+    font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Alice';
-    src: url('Branding/Alice-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'Helvetica Neue';
+    src: url('Branding/helvetica-neue-5/HelveticaNeueRoman.otf') format('opentype');
+    font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'VarelaRound';
-    src: url('Branding/VarelaRound-Regular.ttf') format('truetype');
-    font-weight: normal;
+    font-family: 'Helvetica Neue';
+    src: url('Branding/helvetica-neue-5/HelveticaNeueMedium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('Branding/helvetica-neue-5/HelveticaNeueBold.otf') format('opentype');
+    font-weight: 700;
     font-style: normal;
 }
 
@@ -42,9 +49,8 @@
     --spacing-xl: 6rem;
 
     /* Typography */
-    --font-heading: 'Archivo', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --font-cardo: 'Cardo', serif;
+    --font-heading: 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Helvetica Neue', Arial, sans-serif;
 
     /* Borders & Shadows */
     --radius-sm: 8px;
@@ -434,7 +440,7 @@ h6 {
 }
 
 .nosotros-title {
-    font-family: 'Alice', serif;
+    font-family: var(--font-heading);
     font-size: 2.8rem;
     margin-bottom: 2rem;
     font-weight: 400;
@@ -446,7 +452,7 @@ h6 {
 }
 
 .nosotros-text {
-    font-family: 'VarelaRound', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.15rem;
     line-height: 1.6;
     color: #032386;
@@ -527,7 +533,7 @@ h6 {
 }
 
 .comunidad-title {
-    font-family: 'Alice', serif;
+    font-family: var(--font-heading);
     font-size: 4.8rem;
     font-weight: 400;
 }
@@ -548,14 +554,14 @@ h6 {
 }
 
 .stat-number {
-    font-family: 'VarelaRound', sans-serif;
+    font-family: var(--font-heading);
     font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
-    font-family: 'VarelaRound', sans-serif;
+    font-family: var(--font-body);
     font-size: 1.3rem;
     color: #032386;
 }

@@ -131,8 +131,9 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
+            const counter = entry.target;
+            
             if (entry.isIntersecting) {
-                const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
                 const isFormatted = counter.hasAttribute('data-format');
                 let startTime = null;
@@ -154,7 +155,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                     }
 
                     if (progress < 1) {
-                        requestAnimationFrame(updateCount);
+                        counter.animationFrameId = requestAnimationFrame(updateCount);
                     } else {
                         if (isFormatted) {
                             counter.innerText = target.toLocaleString('es-ES');
@@ -164,8 +165,17 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                     }
                 };
 
-                requestAnimationFrame(updateCount);
-                observer.unobserve(counter); // Only animate once
+                if (counter.animationFrameId) {
+                    cancelAnimationFrame(counter.animationFrameId);
+                }
+                counter.animationFrameId = requestAnimationFrame(updateCount);
+                
+            } else {
+                // Resetear al salir de la pantalla para que anime de nuevo
+                if (counter.animationFrameId) {
+                    cancelAnimationFrame(counter.animationFrameId);
+                }
+                counter.innerText = "0";
             }
         });
     }, { threshold: 0.1 });
