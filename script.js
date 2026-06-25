@@ -125,6 +125,55 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         revealObserver.observe(el);
     });
 
+    // Number Counter Animation
+    const counters = document.querySelectorAll('.counter');
+    const animationDuration = 2000; // 2 seconds
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const isFormatted = counter.hasAttribute('data-format');
+                let startTime = null;
+
+                const updateCount = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / animationDuration, 1);
+                    
+                    // Ease out expo function for smoother finish
+                    const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    
+                    const currentCount = Math.floor(easeOutExpo * target);
+
+                    if (isFormatted) {
+                        counter.innerText = currentCount.toLocaleString('es-ES');
+                    } else {
+                        counter.innerText = currentCount;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        if (isFormatted) {
+                            counter.innerText = target.toLocaleString('es-ES');
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                };
+
+                requestAnimationFrame(updateCount);
+                observer.unobserve(counter); // Only animate once
+            }
+        });
+    }, { threshold: 0.1 });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+
     // 6. Smooth Scroll Without Changing URL Hash
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
