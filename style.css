@@ -506,7 +506,7 @@ h6 {
 /* Comunidad */
 .comunidad-section {
     padding-top: 14rem;
-    padding-bottom: 16rem;
+    padding-bottom: 20rem;
     position: relative;
 }
 
@@ -528,7 +528,7 @@ h6 {
 
 .comunidad-title {
     font-family: 'Alice', serif;
-    font-size: 3.5rem;
+    font-size: 4.8rem;
     font-weight: 400;
 }
 
@@ -539,6 +539,7 @@ h6 {
     text-align: center;
     flex-wrap: wrap;
     gap: 2rem;
+    margin-top: 14rem;
 }
 
 .stat-item {
@@ -582,10 +583,13 @@ h6 {
     }
     .comunidad-section {
         padding-top: 4rem;
-        padding-bottom: 6rem;
+        padding-bottom: 8rem;
     }
     .comunidad-header {
         margin-bottom: 3rem;
+    }
+    .comunidad-stats {
+        margin-top: 8rem;
     }
     .comunidad-icon {
         position: relative;
@@ -594,6 +598,9 @@ h6 {
         width: 150px;
         margin: 0 auto 2rem;
         display: block;
+    }
+    .comunidad-title {
+        font-size: 3rem;
     }
     .stat-number {
         font-size: 3.5rem;
