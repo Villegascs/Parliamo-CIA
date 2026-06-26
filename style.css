@@ -497,6 +497,10 @@ h6 {
     margin: 0 auto;
 }
 
+.video-thumbnail iframe {
+    transform: scale(1.02);
+}
+
 .video-img {
     width: 100%;
     height: 100%;
