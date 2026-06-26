@@ -9,6 +9,20 @@
 }
 
 @font-face {
+    font-family: 'Cardo';
+    src: url('Branding/Cardo-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('Branding/Cardo-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Helvetica Neue';
     src: url('Branding/helvetica-neue-5/HelveticaNeueRoman.otf') format('opentype');
     font-weight: 400;
@@ -439,8 +453,12 @@ h6 {
     max-width: 55%;
 }
 
+.custom-marquee-section {
+    font-family: 'Cardo', serif;
+}
+
 .nosotros-title {
-    font-family: var(--font-heading);
+    font-family: 'Cardo', serif;
     font-size: 2.8rem;
     margin-bottom: 2rem;
     font-weight: 400;
@@ -533,7 +551,7 @@ h6 {
 }
 
 .comunidad-title {
-    font-family: var(--font-heading);
+    font-family: 'Cardo', serif;
     font-size: 4.8rem;
     font-weight: 400;
 }
