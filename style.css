@@ -529,24 +529,35 @@ h6 {
 
 /* Comunidad */
 .comunidad-section {
-    padding-top: 14rem;
-    padding-bottom: 20rem;
+    padding-top: 7rem;
+    padding-bottom: 9rem;
     position: relative;
+    overflow: hidden;
 }
 
 .comunidad-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 0;
     position: relative;
+    z-index: 20;
 }
 
 .comunidad-icon {
     position: absolute;
-    top: -150px;
-    left: 10px;
-    width: 280px;
+    top: -100px;
+    left: -80px;
+    width: 450px;
     height: auto;
     opacity: 1;
+    z-index: 10;
+}
+
+.comunidad-icon-right {
+    position: absolute;
+    bottom: -130px;
+    right: -100px;
+    width: 500px;
+    height: auto;
     z-index: 10;
 }
 
@@ -563,7 +574,9 @@ h6 {
     text-align: center;
     flex-wrap: wrap;
     gap: 2rem;
-    margin-top: 14rem;
+    margin-top: 4rem;
+    position: relative;
+    z-index: 20;
 }
 
 .stat-item {
@@ -606,22 +619,28 @@ h6 {
         width: 100%;
     }
     .comunidad-section {
-        padding-top: 4rem;
-        padding-bottom: 8rem;
+        padding-top: 5rem;
+        padding-bottom: 7rem;
     }
     .comunidad-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
     .comunidad-stats {
-        margin-top: 8rem;
+        margin-top: 3rem;
     }
     .comunidad-icon {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 150px;
-        margin: 0 auto 2rem;
-        display: block;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 130px;
+        margin: 0;
+    }
+    .comunidad-icon-right {
+        position: absolute;
+        bottom: -20px;
+        right: -10px;
+        width: 160px;
+        z-index: 10;
     }
     .comunidad-title {
         font-size: 3rem;
