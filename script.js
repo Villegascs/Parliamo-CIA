@@ -184,22 +184,12 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         counterObserver.observe(counter);
     });
 
-    // 6. Smooth Scroll Without Changing URL Hash
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
+    // 6. Remove hash from URL on load to keep the URL clean
+    if (window.location.hash) {
+        setTimeout(() => {
+            history.replaceState(null, null, window.location.pathname + window.location.search);
+        }, 10);
+    }
 
 
 
@@ -263,7 +253,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
         });
     });
 
-    // 9. Lenis Smooth Scroll Initialization
+    // 9. Smooth Scroll Initialization (Lenis or Native fallback)
     if (typeof Lenis !== 'undefined') {
         const lenis = new Lenis({
             lerp: 0.08, // Gives a very controlled, smooth, high-end feel
@@ -279,7 +269,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
 
         requestAnimationFrame(raf);
 
-        // Make anchor links smooth scroll using Lenis since we removed native CSS smooth scroll
+        // Make anchor links smooth scroll using Lenis
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -291,7 +281,58 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                         lenis.scrollTo(targetElement, { offset: -80 });
                     }
                 }
+                // Asegurar que la URL se mantiene limpia sin el hash
+                history.replaceState(null, null, window.location.pathname + window.location.search);
+            });
+        });
+    } else {
+        // Fallback nativo si Lenis falla
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+                // Asegurar que la URL se mantiene limpia sin el hash
+                history.replaceState(null, null, window.location.pathname + window.location.search);
             });
         });
     }
+
+    // 10. Pre-select Modalidad when clicking on pill buttons
+    const pillButtons = document.querySelectorAll('.modalidad-pill-btn');
+    pillButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const preselectValue = btn.getAttribute('data-preselect');
+            if (preselectValue) {
+                const targetOption = document.querySelector(`.combobox-option[data-value="${preselectValue}"]`);
+                if (targetOption) {
+                    targetOption.click();
+                }
+            }
+        });
+    });
+
+    // 11. Video Facades (Load iframe on click)
+    document.querySelectorAll('.video-facade').forEach(facade => {
+        facade.addEventListener('click', () => {
+            const videoId = facade.getAttribute('data-video-id');
+            if (videoId) {
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://player.mediadelivery.net/play/690762/${videoId}?autoplay=true&loop=false&muted=false&preload=true&responsive=true`;
+                iframe.style.cssText = "border:0;position:absolute;top:50%;left:-5px;width:calc(100% + 10px);height:142.22%;transform:translateY(calc(-50% - 50px));";
+                iframe.allow = "accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;";
+                iframe.setAttribute('allowfullscreen', 'true');
+                
+                facade.innerHTML = '';
+                facade.appendChild(iframe);
+                facade.style.cursor = 'default';
+                facade.classList.remove('video-facade');
+            }
+        });
+    });
 });

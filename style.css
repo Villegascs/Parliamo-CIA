@@ -425,6 +425,7 @@ h6 {
         opacity: 0;
         transform: translateX(30px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -434,7 +435,8 @@ h6 {
 /* =========================================
    Nosotros & Comunidad
 ========================================= */
-.nosotros-section, .comunidad-section {
+.nosotros-section,
+.comunidad-section {
     background-color: #F5F5EB;
     color: #032386;
     padding: 5rem 0;
@@ -493,7 +495,7 @@ h6 {
     border-radius: 2rem;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     margin: 0 auto;
 }
 
@@ -514,20 +516,20 @@ h6 {
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-    background-color: rgba(255,255,255,0.3);
-    border: 3px solid rgba(255,255,255,0.8);
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 2rem;
     padding-left: 5px;
     transition: all 0.3s ease;
 }
 
 .video-thumbnail:hover .play-button-overlay {
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     transform: translate(-50%, -50%) scale(1.1);
 }
 
@@ -606,32 +608,40 @@ h6 {
         flex-direction: column;
         gap: 3rem;
     }
+
     .nosotros-content {
         max-width: 100%;
     }
+
     .nosotros-title {
         white-space: normal;
         font-size: 2.2rem;
         text-align: center;
     }
+
     .nosotros-text {
         margin-left: 0;
     }
+
     .nosotros-video-container {
         margin-right: 0;
         justify-content: center;
         width: 100%;
     }
+
     .comunidad-section {
         padding-top: 5rem;
         padding-bottom: 7rem;
     }
+
     .comunidad-header {
         margin-bottom: 2rem;
     }
+
     .comunidad-stats {
         margin-top: 3rem;
     }
+
     .comunidad-icon {
         position: absolute;
         top: -10px;
@@ -639,6 +649,7 @@ h6 {
         width: 130px;
         margin: 0;
     }
+
     .comunidad-icon-right {
         position: absolute;
         bottom: -20px;
@@ -646,11 +657,151 @@ h6 {
         width: 160px;
         z-index: 10;
     }
+
     .comunidad-title {
         font-size: 3rem;
     }
+
     .stat-number {
         font-size: 3.5rem;
+    }
+}
+
+/* =========================================
+   PLIDA Section
+========================================= */
+.plida-section {
+    position: relative;
+    padding: 6rem 0;
+    background-image: url('Branding/fondo plida.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: #ffffff;
+}
+
+.plida-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 35, 134, 0.4);
+    z-index: 1;
+}
+
+.plida-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+
+/* Left Content */
+.plida-logo-wrapper {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.plida-logo-img {
+    max-width: 280px;
+    height: auto;
+    display: inline-block;
+}
+
+.plida-text-content {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: justify;
+    padding-right: 1.5rem;
+}
+
+.plida-text-content p {
+    margin-bottom: 1.5rem;
+}
+
+.plida-text-content strong {
+    font-weight: 700;
+}
+
+/* Right Content */
+.plida-video-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 1.5rem;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1/1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.plida-video-thumbnail {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.plida-video-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.plida-video-caption {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    text-align: center;
+    color: #ffffff;
+    max-width: 450px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    opacity: 0.9;
+}
+
+.plida-btn-container {
+    text-align: center;
+    width: 100%;
+}
+
+.plida-inscribir-btn {
+    background-color: var(--clr-accent);
+    color: var(--clr-text-primary);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--clr-accent);
+}
+
+.plida-inscribir-btn:hover {
+    background-color: transparent;
+    color: var(--clr-accent);
+}
+
+@media (max-width: 900px) {
+    .plida-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .plida-logo-img {
+        max-width: 280px;
+    }
+
+    .plida-text-content {
+        padding-right: 0;
+    }
+
+    .plida-video-container {
+        max-width: 400px;
     }
 }
 
@@ -1086,7 +1237,8 @@ textarea.form-input {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: #032386; /* Dark blue background */
+        background-color: #032386;
+        /* Dark blue background */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1362,7 +1514,165 @@ textarea.form-input {
     .preloader-text-container {
         font-size: 2rem;
     }
+
     .intro-brand {
         display: block;
+    }
+}
+
+/* =========================================
+   Modalidades Section
+========================================= */
+.modalidades-section {
+    background-color: var(--clr-background-alt);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.modalidades-icon {
+    position: absolute;
+    z-index: 1;
+}
+
+.modalidades-icon-left {
+    width: 180px;
+    top: 20px;
+    left: 4%;
+    transform: rotate(-25deg);
+}
+
+.modalidades-icon-right {
+    width: 160px;
+    top: 120px;
+    right: 4%;
+    transform: rotate(20deg);
+}
+
+.modalidades-title {
+    font-family: 'Cardo', serif;
+    color: var(--clr-text-primary);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.modalidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 950px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.modalidad-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalidad-video-container {
+    position: relative;
+    width: 100%;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.modalidad-img {
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: 142.22%;
+    object-fit: cover;
+    transform: translateY(calc(-50% - 50px));
+}
+
+.modalidad-video-container .play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modalidad-video-container:hover .play-button-overlay {
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.modalidad-btn-wrapper {
+    margin-bottom: 0.8rem;
+}
+
+.modalidad-pill-btn {
+    display: inline-block;
+    padding: 0.6rem 3rem;
+    border: 3px solid var(--clr-text-primary);
+    border-radius: 50px;
+    color: var(--clr-text-primary);
+    font-weight: 700;
+    font-size: 2rem;
+    text-transform: uppercase;
+    transition: var(--transition);
+    background-color: transparent;
+    font-family: var(--font-heading);
+    line-height: 1;
+}
+
+.modalidad-pill-btn:hover {
+    background-color: var(--clr-text-primary);
+    color: white;
+}
+
+.modalidad-desc {
+    color: var(--clr-text-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .modalidades-title {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+    }
+    .modalidades-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        max-width: 450px;
+    }
+    .modalidades-icon-left {
+        width: 100px;
+        top: 20px;
+        left: -10px;
+    }
+    .modalidades-icon-right {
+        width: 90px;
+        top: 60px;
+        right: -10px;
+    }
+    .modalidad-pill-btn {
+        font-size: 1.5rem;
+        padding: 0.5rem 2rem;
     }
 }
