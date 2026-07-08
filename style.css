@@ -1670,23 +1670,189 @@ textarea.form-input {
         font-size: 3rem;
         margin-bottom: 3rem;
     }
+
     .modalidades-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
         max-width: 450px;
     }
+
     .modalidades-icon-left {
         width: 100px;
         top: 20px;
         left: -10px;
     }
+
     .modalidades-icon-right {
         width: 90px;
         top: 60px;
         right: -10px;
     }
+
     .modalidad-pill-btn {
         font-size: 1.5rem;
         padding: 0.5rem 2rem;
+    }
+}
+/* =========================================
+   Eventos y Noticias (Light Layout)
+========================================= */
+.eventos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.eventos-kicker {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--clr-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.eventos-main-title {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-family: var(--font-heading);
+    margin-bottom: 0.5rem;
+    color: var(--clr-text-primary);
+}
+
+.eventos-swoosh {
+    width: 150px;
+    height: auto;
+}
+
+.eventos-btn {
+    background-color: var(--clr-brand);
+    color: #ffffff;
+    border-radius: 8px; 
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+}
+
+.eventos-btn:hover {
+    background-color: var(--clr-brand-hover);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(48, 100, 183, 0.3);
+}
+
+.eventos-profile {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.profile-pic img {
+    width: 70%;
+    height: auto;
+}
+
+.profile-username {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--clr-text-primary);
+}
+
+.profile-bio {
+    font-size: 1rem;
+    color: var(--clr-text-secondary);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .eventos-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .eventos-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .eventos-profile {
+        align-items: flex-start;
+    }
+}
+
+/* =========================================
+   Instagram Static Grid Section
+========================================= */
+.instagram-static-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-top: 2rem;
+    align-items: start;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.instagram-post-link {
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 5; /* 1080 x 1350 px para portadas de Reels/Verticales */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.instagram-post-link:hover {
+    filter: brightness(0.85);
+}
+
+.instagram-post-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.instagram-post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.insta-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));
+}
+
+@media (max-width: 900px) {
+    .instagram-static-grid {
+        gap: 2px;
+    }
+}
+
+@media (max-width: 600px) {
+    .instagram-static-grid {
+        grid-template-columns: 1fr;
     }
 }

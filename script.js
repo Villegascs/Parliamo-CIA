@@ -66,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         // Get values
+        const nombre = document.getElementById('nombre').value;
         const modalidad = document.getElementById('modalidad').value;
         const edad = document.getElementById('edad').value;
         const plidaRadio = document.querySelector('input[name="plida"]:checked');
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneNumber = '584129550860'; // +58 412-9550860
 
         // Format message
-        const message = `¡Hola Parliamo Ciao! 🇮🇹 Estoy interesado/a en aprender italiano y completé el formulario web:
+        const message = `¡Hola Parliamo Ciao! 🇮🇹 Soy ${nombre}, estoy interesado/a en aprender italiano y completé el formulario web:
 
 *Modalidad:* ${modalidad}
 *Edad:* ${edad} años
@@ -132,7 +133,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             const counter = entry.target;
-            
+
             if (entry.isIntersecting) {
                 const target = +counter.getAttribute('data-target');
                 const isFormatted = counter.hasAttribute('data-format');
@@ -142,10 +143,10 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                     if (!startTime) startTime = currentTime;
                     const elapsedTime = currentTime - startTime;
                     const progress = Math.min(elapsedTime / animationDuration, 1);
-                    
+
                     // Ease out expo function for smoother finish
                     const easeOutExpo = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-                    
+
                     const currentCount = Math.floor(easeOutExpo * target);
 
                     if (isFormatted) {
@@ -169,7 +170,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                     cancelAnimationFrame(counter.animationFrameId);
                 }
                 counter.animationFrameId = requestAnimationFrame(updateCount);
-                
+
             } else {
                 // Resetear al salir de la pantalla para que anime de nuevo
                 if (counter.animationFrameId) {
@@ -327,7 +328,7 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
                 iframe.style.cssText = "border:0;position:absolute;top:50%;left:-5px;width:calc(100% + 10px);height:142.22%;transform:translateY(calc(-50% - 50px));";
                 iframe.allow = "accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;";
                 iframe.setAttribute('allowfullscreen', 'true');
-                
+
                 facade.innerHTML = '';
                 facade.appendChild(iframe);
                 facade.style.cursor = 'default';
