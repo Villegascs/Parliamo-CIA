@@ -324,9 +324,9 @@ Quedo atento/a a su asesoría. ¡Gracias!`;
             const videoId = facade.getAttribute('data-video-id');
             if (videoId) {
                 const iframe = document.createElement('iframe');
-                iframe.src = `https://player.mediadelivery.net/play/690762/${videoId}?autoplay=true&loop=false&muted=false&preload=true&responsive=true`;
-                iframe.style.cssText = "border:0;position:absolute;top:50%;left:-5px;width:calc(100% + 10px);height:142.22%;transform:translateY(calc(-50% - 50px));";
-                iframe.allow = "accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;";
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                iframe.style.cssText = "border:0;position:absolute;top:0;left:0;width:100%;height:100%;";
+                iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
                 iframe.setAttribute('allowfullscreen', 'true');
 
                 facade.innerHTML = '';
