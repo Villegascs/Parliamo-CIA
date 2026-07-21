@@ -1,0 +1,42 @@
+[debug] [2026-07-21T17:10:30.671Z] ----------------------------------------------------------------------
+[debug] [2026-07-21T17:10:30.674Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\arman_u5omxhq\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2026-07-21T17:10:30.674Z] CLI Version:   15.17.0
+[debug] [2026-07-21T17:10:30.674Z] Platform:      win32
+[debug] [2026-07-21T17:10:30.674Z] Node Version:  v24.15.0
+[debug] [2026-07-21T17:10:30.674Z] Time:          Tue Jul 21 2026 13:10:30 GMT-0400 (hora de Venezuela)
+[debug] [2026-07-21T17:10:30.674Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-07-21T17:10:37.283Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-07-21T17:10:37.286Z] > authorizing via signed-in user (ftsaevc@gmail.com)
+[debug] [2026-07-21T17:10:37.286Z] [iam] checking project parliamo-cia for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-07-21T17:10:37.291Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.292Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.297Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions [none]
+[debug] [2026-07-21T17:10:37.297Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions  x-goog-user-project=parliamo-cia
+[debug] [2026-07-21T17:10:37.298Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-07-21T17:10:37.366Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"firebase.projects.get\",\"firebasehosting.sites.update\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions failed, reason: getaddrinfo EAI_AGAIN cloudresourcemanager.googleapis.com
+[debug] [2026-07-21T17:10:37.368Z] [iam] error while checking permissions, command may fail: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/parliamo-cia:testIamPermissions
+[debug] [2026-07-21T17:10:37.369Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.370Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.370Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/parliamo-cia [none]
+[debug] [2026-07-21T17:10:37.800Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/parliamo-cia 200
+[debug] [2026-07-21T17:10:37.801Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/parliamo-cia {"projectId":"parliamo-cia","projectNumber":"241721088283","displayName":"Parliamo Cia","name":"projects/parliamo-cia","resources":{"hostingSite":"parliamo-cia"},"state":"ACTIVE","labels":{"firebase":"enabled"},"etag":"1_278d7841-87f1-4c29-9f9f-cca594ee1633"}
+[info] 
+[info] === Deploying to 'parliamo-cia'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-07-21T17:10:37.807Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.807Z] Checked if tokens are valid: true, expires at: 1784656891913
+[debug] [2026-07-21T17:10:37.807Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/parliamo-cia/sites/parliamo-cia [none]
+[debug] [2026-07-21T17:10:37.839Z] *** [apiv2] error from fetch(https://firebasehosting.googleapis.com/v1beta1/projects/parliamo-cia/sites/parliamo-cia, {"headers":{},"method":"GET"}): FetchError: request to https://firebasehosting.googleapis.com/v1beta1/projects/parliamo-cia/sites/parliamo-cia failed, reason: getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+[debug] [2026-07-21T17:10:38.041Z] FetchError: request to https://firebasehosting.googleapis.com/v1beta1/projects/parliamo-cia/sites/parliamo-cia failed, reason: getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+    at ClientRequest.<anonymous> (C:\Users\arman_u5omxhq\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:509:28)
+    at emitErrorEvent (node:_http_client:109:11)
+    at TLSSocket.socketErrorListener (node:_http_client:593:5)
+    at TLSSocket.emit (node:events:509:28)
+    at emitErrorNT (node:internal/streams/destroy:170:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+[error] 
+[error] Error: Failed to make request to https://firebasehosting.googleapis.com/v1beta1/projects/parliamo-cia/sites/parliamo-cia
