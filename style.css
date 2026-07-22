@@ -736,12 +736,12 @@ h6 {
 /* Right Content */
 .plida-video-container {
     width: 100%;
-    max-width: 450px;
+    max-width: 320px;
     margin: 0 auto 1.5rem;
     border-radius: 2.5rem;
     overflow: hidden;
     position: relative;
-    aspect-ratio: 1/1;
+    aspect-ratio: 9/16;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.1);
 }
@@ -807,7 +807,7 @@ h6 {
     }
 
     .plida-video-container {
-        max-width: 400px;
+        max-width: 320px;
     }
 }
 
